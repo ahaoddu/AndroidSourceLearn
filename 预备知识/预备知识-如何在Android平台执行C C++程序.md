@@ -80,6 +80,7 @@ export LD_LIBRARY_PATH=/data/local/tmp && ./test
 
 ## 源码
 
+你可在我的 github 仓库 https://github.com/dducd/AndroidSourceLearn/tree/main/Demos/AndroidRunCpp 中下载到示例代码。
 
 ## 参考资料
 
