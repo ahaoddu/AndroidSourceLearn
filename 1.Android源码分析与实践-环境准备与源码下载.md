@@ -1,6 +1,8 @@
 这是一个系列教程，陆续更新中：<br />
 
-[1.Android源码分析与实践-环境准备与源码下载](https://juejin.cn/post/7140475109264850981)
+[预备知识-如何在Android平台执行C/C++程序](https://github.com/dducd/AndroidSourceLearn/blob/main/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20C%2B%2B%E7%A8%8B%E5%BA%8F.md)
+
+[1.Android源码分析与实践-环境准备与源码下载](https://github.com/dducd/AndroidSourceLearn/blob/main/1.Android%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD.md)
 
 [2.Linux驱动入门-模块](https://github.com/dducd/AndroidSourceLearn/blob/main/2.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E6%A8%A1%E5%9D%97.md)
 
