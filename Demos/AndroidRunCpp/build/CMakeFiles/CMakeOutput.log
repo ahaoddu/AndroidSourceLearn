@@ -1,0 +1,288 @@
+The target system is: Android - 1 - x86_64
+The host system is: Linux - 5.15.0-46-generic - x86_64
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_afe20/fast && /usr/bin/make -f CMakeFiles/cmTC_afe20.dir/build.make CMakeFiles/cmTC_afe20.dir/build
+make[1]: Entering directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_afe20.dir/testCCompiler.c.o
+/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -o CMakeFiles/cmTC_afe20.dir/testCCompiler.c.o   -c /home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_afe20
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_afe20.dir/link.txt --verbose=1
+/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--gc-sections -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   CMakeFiles/cmTC_afe20.dir/testCCompiler.c.o  -o cmTC_afe20  -latomic -lm 
+make[1]: Leaving directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b9ee7/fast && /usr/bin/make -f CMakeFiles/cmTC_b9ee7.dir/build.make CMakeFiles/cmTC_b9ee7.dir/build
+make[1]: Entering directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o
+/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -v -o CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+Android (8490178, based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)
+Target: x86_64-none-linux-android29
+Thread model: posix
+InstalledDir: /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin
+ (in-process)
+ "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang" -cc1 -triple x86_64-none-linux-android29 -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -target-feature +sse4.2 -target-feature +popcnt -target-feature +cx16 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp -resource-dir /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6 -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -Wformat -Werror=format-security -fdebug-compilation-dir=/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp -ferror-limit 19 -stack-protector 2 -fgnuc-version=4.2.1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+clang -cc1 version 14.0.6 based upon LLVM 14.0.6git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include
+ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include
+ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android
+ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include
+End of search list.
+Linking C executable cmTC_b9ee7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b9ee7.dir/link.txt --verbose=1
+/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--gc-sections -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections  -v CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o  -o cmTC_b9ee7 
+Android (8490178, based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)
+Target: x86_64-none-linux-android29
+Thread model: posix
+InstalledDir: /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin
+ "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/ld" --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie --warn-shared-textrel -z now -z relro --hash-style=gnu --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_b9ee7 /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtbegin_dynamic.o -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64 -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29 -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --build-id=sha1 --no-rosegment --fatal-warnings --gc-sections --no-undefined --gc-sections CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl -lc /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtend_android.o
+make[1]: Leaving directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include]
+    add: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include]
+    add: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+    add: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+  end of search list found
+  collapse include dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include]
+  collapse include dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include]
+  collapse include dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+  collapse include dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+  implicit include dirs: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_b9ee7/fast && /usr/bin/make -f CMakeFiles/cmTC_b9ee7.dir/build.make CMakeFiles/cmTC_b9ee7.dir/build]
+  ignore line: [make[1]: Entering directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -v -o CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
+  ignore line: [Android (8490178  based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)]
+  ignore line: [Target: x86_64-none-linux-android29]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin]
+  ignore line: [ (in-process)]
+  ignore line: [ "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang" -cc1 -triple x86_64-none-linux-android29 -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -target-feature +sse4.2 -target-feature +popcnt -target-feature +cx16 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp -resource-dir /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6 -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -Wformat -Werror=format-security -fdebug-compilation-dir=/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp -ferror-limit 19 -stack-protector 2 -fgnuc-version=4.2.1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
+  ignore line: [clang -cc1 version 14.0.6 based upon LLVM 14.0.6git default target x86_64-unknown-linux-gnu]
+  ignore line: [ignoring nonexistent directory "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include]
+  ignore line: [ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include]
+  ignore line: [ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+  ignore line: [ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [Linking C executable cmTC_b9ee7]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b9ee7.dir/link.txt --verbose=1]
+  ignore line: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -Wl --build-id=sha1 -Wl --no-rosegment -Wl --fatal-warnings -Wl --gc-sections -Wl --no-undefined -Qunused-arguments -Wl --gc-sections  -v CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o  -o cmTC_b9ee7 ]
+  ignore line: [Android (8490178  based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)]
+  ignore line: [Target: x86_64-none-linux-android29]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin]
+  link line: [ "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/ld" --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie --warn-shared-textrel -z now -z relro --hash-style=gnu --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_b9ee7 /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtbegin_dynamic.o -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64 -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29 -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --build-id=sha1 --no-rosegment --fatal-warnings --gc-sections --no-undefined --gc-sections CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl -lc /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtend_android.o]
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/ld] ==> ignore
+    arg [--sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot] ==> ignore
+    arg [-pie] ==> ignore
+    arg [--warn-shared-textrel] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/system/bin/linker64] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_b9ee7] ==> ignore
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtbegin_dynamic.o] ==> ignore
+    arg [-L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64] ==> dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64]
+    arg [-L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29] ==> dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29]
+    arg [-L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android]
+    arg [-L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+    arg [--build-id=sha1] ==> ignore
+    arg [--no-rosegment] ==> ignore
+    arg [--fatal-warnings] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [--no-undefined] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [CMakeFiles/cmTC_b9ee7.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a] ==> lib [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a]
+    arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+    arg [-ldl] ==> lib [dl]
+    arg [-lc] ==> lib [c]
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a] ==> lib [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a]
+    arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+    arg [-ldl] ==> lib [dl]
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtend_android.o] ==> ignore
+  remove lib [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a]
+  remove lib [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a]
+  collapse library dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64]
+  collapse library dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29]
+  collapse library dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android]
+  collapse library dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+  implicit libs: [-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+  implicit dirs: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7417b/fast && /usr/bin/make -f CMakeFiles/cmTC_7417b.dir/build.make CMakeFiles/cmTC_7417b.dir/build
+make[1]: Entering directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7417b.dir/testCXXCompiler.cxx.o
+/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot    -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -fPIE   -o CMakeFiles/cmTC_7417b.dir/testCXXCompiler.cxx.o -c /home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_7417b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7417b.dir/link.txt --verbose=1
+/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security     -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--gc-sections -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   CMakeFiles/cmTC_7417b.dir/testCXXCompiler.cxx.o  -o cmTC_7417b  -latomic -lm 
+make[1]: Leaving directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7ea5f/fast && /usr/bin/make -f CMakeFiles/cmTC_7ea5f.dir/build.make CMakeFiles/cmTC_7ea5f.dir/build
+make[1]: Entering directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o
+/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot    -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -fPIE   -v -o CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+Android (8490178, based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)
+Target: x86_64-none-linux-android29
+Thread model: posix
+InstalledDir: /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin
+ (in-process)
+ "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++" -cc1 -triple x86_64-none-linux-android29 -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -target-feature +sse4.2 -target-feature +popcnt -target-feature +cx16 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp -resource-dir /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6 -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1 -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -Wformat -Werror=format-security -fdeprecated-macro -fdebug-compilation-dir=/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp -ferror-limit 19 -stack-protector 2 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 14.0.6 based upon LLVM 14.0.6git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1
+ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include
+ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include
+ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android
+ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include
+End of search list.
+Linking CXX executable cmTC_7ea5f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ea5f.dir/link.txt --verbose=1
+/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security     -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--gc-sections -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections  -v CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_7ea5f 
+Android (8490178, based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)
+Target: x86_64-none-linux-android29
+Thread model: posix
+InstalledDir: /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin
+ "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/ld" --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie --warn-shared-textrel -z now -z relro --hash-style=gnu --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_7ea5f /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtbegin_dynamic.o -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64 -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29 -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --build-id=sha1 --no-rosegment --fatal-warnings --gc-sections --no-undefined --gc-sections CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lm /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl -lc /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtend_android.o
+make[1]: Leaving directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1]
+    add: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include]
+    add: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include]
+    add: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+    add: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+  end of search list found
+  collapse include dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1]
+  collapse include dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include]
+  collapse include dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include]
+  collapse include dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+  collapse include dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+  implicit include dirs: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_7ea5f/fast && /usr/bin/make -f CMakeFiles/cmTC_7ea5f.dir/build.make CMakeFiles/cmTC_7ea5f.dir/build]
+  ignore line: [make[1]: Entering directory '/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot    -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -fPIE   -v -o CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Android (8490178  based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)]
+  ignore line: [Target: x86_64-none-linux-android29]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin]
+  ignore line: [ (in-process)]
+  ignore line: [ "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++" -cc1 -triple x86_64-none-linux-android29 -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -target-feature +sse4.2 -target-feature +popcnt -target-feature +cx16 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp -resource-dir /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6 -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1 -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include -internal-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include -internal-externc-isystem /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -Wformat -Werror=format-security -fdeprecated-macro -fdebug-compilation-dir=/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/CMakeTmp -ferror-limit 19 -stack-protector 2 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [clang -cc1 version 14.0.6 based upon LLVM 14.0.6git default target x86_64-unknown-linux-gnu]
+  ignore line: [ignoring nonexistent directory "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1]
+  ignore line: [ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/include]
+  ignore line: [ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include]
+  ignore line: [ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+  ignore line: [ /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [Linking CXX executable cmTC_7ea5f]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ea5f.dir/link.txt --verbose=1]
+  ignore line: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android29 --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security     -Wl --build-id=sha1 -Wl --no-rosegment -Wl --fatal-warnings -Wl --gc-sections -Wl --no-undefined -Qunused-arguments -Wl --gc-sections  -v CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_7ea5f ]
+  ignore line: [Android (8490178  based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)]
+  ignore line: [Target: x86_64-none-linux-android29]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin]
+  link line: [ "/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/ld" --sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie --warn-shared-textrel -z now -z relro --hash-style=gnu --enable-new-dtags --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_7ea5f /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtbegin_dynamic.o -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64 -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29 -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android -L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --build-id=sha1 --no-rosegment --fatal-warnings --gc-sections --no-undefined --gc-sections CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lm /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl -lc /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl /home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtend_android.o]
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/bin/ld] ==> ignore
+    arg [--sysroot=/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot] ==> ignore
+    arg [-pie] ==> ignore
+    arg [--warn-shared-textrel] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/system/bin/linker64] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_7ea5f] ==> ignore
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtbegin_dynamic.o] ==> ignore
+    arg [-L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64] ==> dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64]
+    arg [-L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29] ==> dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29]
+    arg [-L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android]
+    arg [-L/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+    arg [--build-id=sha1] ==> ignore
+    arg [--no-rosegment] ==> ignore
+    arg [--fatal-warnings] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [--no-undefined] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [CMakeFiles/cmTC_7ea5f.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lc++] ==> lib [c++]
+    arg [-lm] ==> lib [m]
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a] ==> lib [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a]
+    arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+    arg [-ldl] ==> lib [dl]
+    arg [-lc] ==> lib [c]
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a] ==> lib [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a]
+    arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+    arg [-ldl] ==> lib [dl]
+    arg [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29/crtend_android.o] ==> ignore
+  remove lib [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a]
+  remove lib [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/libclang_rt.builtins-x86_64-android.a]
+  collapse library dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64]
+  collapse library dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29]
+  collapse library dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android]
+  collapse library dir [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+  implicit libs: [c++;m;-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+  implicit dirs: [/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.6/lib/linux/x86_64;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/29;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android;/home/zzh0838/android-ndk-r25b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+  implicit fwks: []
+
+
