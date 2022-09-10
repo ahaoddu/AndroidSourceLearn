@@ -1,3 +1,0 @@
-/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/rebuild_cache.dir
-/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/edit_cache.dir
-/home/zzh0838/Project/AndroidSourceLearn/Demos/AndroidRunCpp/build/CMakeFiles/main.dir

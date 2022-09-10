@@ -2,7 +2,9 @@
 
 我们直接看一个示例：
 
-写一个 helloworld c++ 可执行程序
+写一个 helloworld c++ 可执行程序:
+
+main.c:
 ```cpp
 # include <iostream>
 
@@ -26,9 +28,9 @@ CMakeLists.txt
 ```cmake
 cmake_minimum_required(VERSION 3.0)
 
-project(test)
+project(main)
 
-add_executable(${PROJECT_NAME} hello_drv_test.c)
+add_executable(${PROJECT_NAME} main.cpp )
 ```
 
 编译脚本 build.sh:
@@ -74,6 +76,11 @@ adb shell
 cd /data/local/tmp
 export LD_LIBRARY_PATH=/data/local/tmp && ./test
 ```
+
+
+## 源码
+
+
 ## 参考资料
 
 - [[CMake 文档] Cross Compiling for Android with the NDK](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html#cross-compiling-for-android-with-the-ndk)
