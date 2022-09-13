@@ -280,6 +280,7 @@ JNI 中定义了与 Java 类型对应的 JNI 类型：
 ##### 3.3.1 原始类型
 
 ```java
+
 //java
 private native double average(int n1, int n2);
 
@@ -287,13 +288,11 @@ private native double average(int n1, int n2);
 JNIEXPORT jdouble JNICALL Java_TestJNIPrimitive_average(
     JNIEnv *env, jobject obj, jint n1, jint n2)
 {
+    //原始类型不用做转换，直接使用
     cout << "n1 = " << n1 << ", n2 = " << n2 << endl;
-
     return jdouble(n1 + n2)/2.0;
 }
 ```
-
-原始类型不用做转换，直接使用。
 
 ##### 3.2.2 字符串
 
@@ -305,17 +304,19 @@ private native String sayHello(String msg);
 JNIEXPORT jstring JNICALL Java_TestJNIString_sayHello(
     JNIEnv *env, jobject obj, jstring inJNIString)
 {
+    //将 java 中的 String 转换为 char*
     const char* inStr = env->GetStringUTFChars(inJNIString, NULL);
     if(NULL == inStr)
         return NULL;
 
+    //内存清理工作
     cout << "the received string is " << inStr << endl;
     env->ReleaseStringUTFChars(inJNIString, inStr);
 
     string outString;
     cout << "Enter a String:";
     cin >> outString;
-
+    // char* 转换为 string
     return env->NewStringUTF(outString.c_str());
 }
 ```
@@ -325,7 +326,7 @@ JNIEXPORT jstring JNICALL Java_TestJNIString_sayHello(
 ##### 3.2.3 数组
 
 ```java
-//java
+ //java
 // 返回数组double[2]，其中double[0]为和，double[1]为平均数
 private native double[] sumAndAverage(int[] numbers);
 
@@ -333,8 +334,10 @@ private native double[] sumAndAverage(int[] numbers);
 JNIEXPORT jdoubleArray JNICALL Java_TestJNIPrimitiveArray_sumAndAverage(
     JNIEnv *env, jobject obj, jintArray inJNIArray)
 {
+    //int[] -> jintArray -> jint*
     jint* inArray = env->GetIntArrayElements(inJNIArray, NULL);
     if(NULL == inArray) return NULL;
+    //获取到数组长度
     jsize length = env->GetArrayLength(inJNIArray);
 
     jint sum = 0;
@@ -344,6 +347,7 @@ JNIEXPORT jdoubleArray JNICALL Java_TestJNIPrimitiveArray_sumAndAverage(
     }
 
     jdouble average = (jdouble)sum / length;
+    //释放数组
     env->ReleaseIntArrayElements(inJNIArray, inArray, 0); // release resource
 
     jdouble outArray[] = {sum, average};
