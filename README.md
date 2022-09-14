@@ -15,7 +15,9 @@
 
 [4.Linux驱动入门-驱动](https://github.com/dducd/AndroidSourceLearn/blob/main/3.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E9%A9%B1%E5%8A%A8.md)
 
-5.预备知识-JNI入门
+[5.预备知识-JNI入门](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E5%85%A5%E9%97%A8.md)
+
+6.预备知识-JNI进阶
 
 
 下图是计划中的路线图，陆续更新中，后续根据实际情况会做一些微调。
