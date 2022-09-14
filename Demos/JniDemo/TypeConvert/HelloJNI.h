@@ -17,14 +17,6 @@ JNIEXPORT void JNICALL Java_HelloJNI_sayHello__
 
 /*
  * Class:     HelloJNI
- * Method:    sayHello
- * Signature: (Ljava/lang/String;)Ljava/lang/String;
- */
-JNIEXPORT jstring JNICALL Java_HelloJNI_sayHello__Ljava_lang_String_2
-  (JNIEnv *, jobject, jstring);
-
-/*
- * Class:     HelloJNI
  * Method:    average
  * Signature: (II)D
  */
@@ -33,11 +25,35 @@ JNIEXPORT jdouble JNICALL Java_HelloJNI_average
 
 /*
  * Class:     HelloJNI
+ * Method:    sayHello
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_HelloJNI_sayHello__Ljava_lang_String_2
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     HelloJNI
  * Method:    sumAndAverage
  * Signature: ([I)[D
  */
 JNIEXPORT jdoubleArray JNICALL Java_HelloJNI_sumAndAverage
   (JNIEnv *, jobject, jintArray);
+
+/*
+ * Class:     HelloJNI
+ * Method:    modifyVariable
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_HelloJNI_modifyVariable
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     HelloJNI
+ * Method:    callJavaMethod
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_HelloJNI_callJavaMethod
+  (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }

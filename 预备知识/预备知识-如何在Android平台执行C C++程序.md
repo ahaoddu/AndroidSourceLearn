@@ -5,6 +5,7 @@
 写一个 helloworld c++ 可执行程序:
 
 main.c:
+
 ```cpp
 # include <iostream>
 
@@ -25,6 +26,7 @@ google 给了两种方式用于支持 CMake 调用 NDK 的工具链编译 C/C++ 
 本文采用第二种方式：
 
 CMakeLists.txt
+
 ```cmake
 cmake_minimum_required(VERSION 3.0)
 
@@ -34,6 +36,7 @@ add_executable(${PROJECT_NAME} main.cpp )
 ```
 
 编译脚本 build.sh:
+
 ```cmake
 export ANDROID_NDK=你的ndk完整路径
 
@@ -77,7 +80,6 @@ cd /data/local/tmp
 export LD_LIBRARY_PATH=/data/local/tmp && ./test
 ```
 
-
 ## 源码
 
 你可在我的 github 仓库 https://github.com/dducd/AndroidSourceLearn/tree/main/Demos/AndroidRunCpp 中下载到示例代码。
@@ -86,3 +88,13 @@ export LD_LIBRARY_PATH=/data/local/tmp && ./test
 
 - [[CMake 文档] Cross Compiling for Android with the NDK](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html#cross-compiling-for-android-with-the-ndk)
 - [Google CMake 文档](https://developer.android.com/ndk/guides/cmake)
+
+## 关于我
+
+- 我叫阿豪，目前定居成都
+- 2012 年开始从事 Android 系统定制和应用开发相关的工作
+- 2015 年毕业于国防科技大学，毕业后从事 Android 相关的开发和研究工作
+- 2019年初开始创业，从事 Android 系统开发工作
+- 如果你对 Android 系统源码感兴趣可以扫码添加我的微信，相互学习交流。
+
+![27c7e38ee991b9d1fb42cb3bdf352a7.jpg](https://cdn.nlark.com/yuque/0/2022/jpeg/2613680/1662174041146-53015bfc-12f7-4023-9131-0a9e51fd00a2.jpeg#clientId=u0593d637-e239-4&crop=0&crop=0&crop=1&crop=1&from=drop&id=ud527bf55&margin=%5Bobject%20Object%5D&name=27c7e38ee991b9d1fb42cb3bdf352a7.jpg&originHeight=430&originWidth=430&originalType=binary&ratio=1&rotation=0&showTitle=false&size=42506&status=done&style=none&taskId=uf620381e-5767-4559-867e-093d91d3256&title=#crop=0&crop=0&crop=1&crop=1&id=qxLzV&originHeight=430&originWidth=430&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)

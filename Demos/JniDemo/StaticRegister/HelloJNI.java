@@ -6,10 +6,10 @@ public class HelloJNI {  // Save as HelloJNI.java
    }
  
    // Declare an instance native method sayHello() which receives no parameter and returns void
-   private native void sayHello();
+   private native String sayHello();
  
    // Test Driver
    public static void main(String[] args) {
-      new HelloJNI().sayHello();  // Create an instance and invoke the native method
+      System.out.println(new HelloJNI().sayHello());  // Create an instance and invoke the native method
    }
 }

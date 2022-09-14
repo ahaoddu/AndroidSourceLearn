@@ -3,7 +3,8 @@
 JNI 是 java 访问 C/C++ 代码的技术手段，对于 Android 源码的分析非常重要。学习 jni 主要分为以下几步：
 
 - 掌握 C/C++，建议快速过语法（利用思维导图建立好基本知识框架）+持续学习+查疑补缺
-- 掌握 JNI 基本语法与流程（本文）
+- 掌握 JNI 基本流程（本文）
+- 掌握 JNI 常见数据类型与函数
 - 实践，JNI 只是 java 层与 c 层互相访问的接口，实践的部分更多涉及到的是 linux 系统编程
 
 ## 1. C/C++ 基础
@@ -71,16 +72,32 @@ JNIEXPORT void JNICALL Java_HelloJNI_sayHello(JNIEnv *, jobject);
 #endif
 ```
 
-这里我们需要关注以下 3 点：
-
-- 从 java 中的 native 方法到 C 函数，函数命名的转换规则是：Java_{package_and_classname}_{function_name}(JNI_arguments)。Java包名中的 "." 将被转换为 "_"。Java 中的 sayHello 方法被转换成了了 JNIEXPORT void JNICALL Java_HelloJNI_(JNIEnv *, jobject);
 - C 函数有两个参数：
 
-  - JNIEnv*:  指向 JNI 环境，通过它可以调用 JNI 相关的函数
-  - jobject:  指向 "this" 的 Java 对象
+  - JNIEnv：JNIEnv 内部提供了很多函数，方便我们进行 JNI 编程。
 
-    在这个 hello-world 示例中不需要用到这两个参数。另外，我们先忽略 JNIEXPORT 和 JNICALL 这个两个宏，知道是这么写的就行。
-- extern "C" 告诉 C++ 编译器以 C 的方式来编译这个函数，以方便其他 C 程序访问该函数。C 和 C++ 有着不同的命名协议，因为 C++ 支持函数重载，用了不同的命名协议来处理重载的函数。在 C 中函数是通过函数名来识别的，而在 C++ 中，由于存在函数的重载问题，函数的识别方式通函数名，函数的返回类型，函数参数列表三者组合来完成的。因此两个相同的函数，经过C，C++编绎后会产生完全不同的名字。所以，如果把一个用 C 编绎器编绎的目标代码和一个用 C++ 编绎器编绎的目标代码进行链接，就会出现链接失败的错误。
+    C 代码中，JNIEnv 是指向 JNINativeInterface 结构的指针，为了访问任何一个 JNI 函数，该指针需要首先被解引用。因为 C代码中的 JNI 函数不了解当前的 JNI 环境, JNIEnv 实例应该作为第一个参数传递给每一个 JNI 函数调用调用者，调用格式如下:
+
+    ```c
+    (*env)->NewStringUTF(env,"Hello from JNI !");
+    ```
+
+    在 C++ 代码中，JNIEnv 实际上是 C++ 类实例，JNI 函数以成员函数的形式存在，因此 JNI 函数调用不要求 JNIEnv 实例作参数。在 C++ 中，完成同样功能的调用代码格式如下:
+
+    ```c
+    env->NewstringUTF ( "Hello from JNI ! ");
+    ```
+  - jobject:  指向 "this" 的 Java 对象
+  - 如果 java 中的 native 函数是 static 的，那第二个参数是 jclass，代表了 java 中的 Class 类。
+- extern "C" 告诉 C++ 编译器以 C 的方式来编译这个函数，以方便其他 C 程序访问该函数。C 和 C++ 有着不同的命名协议，因为 C++ 支持函数重载，用了不同的命名协议来处理重载的函数。在 C 中函数是通过函数名来识别的，而在 C++ 中，由于存在函数的重载问题，函数的识别方式通过函数名，函数的返回类型，函数参数列表三者组合来完成的。因此两个相同的函数，经过C，C++编绎后会产生完全不同的名字。所以，如果把一个用 C 编绎器编绎的目标代码和一个用 C++ 编绎器编绎的目标代码进行链接，就会出现链接失败的错误。
+- JNIEXPORT、JNICALL 两个宏在 linux 平台的定义如下：
+
+  ```c
+  //该声明的作用是保证在本动态库中声明的方法 , 能够在其他项目中可以被调用
+  #define JNIEXPORT  __attribute__ ((visibility ("default")))
+  //一个空定义
+  #define JNICALL
+  ```
 
 ### 2.3 在 HelloJNI.c 中实现 C 程序
 
@@ -89,10 +106,9 @@ JNIEXPORT void JNICALL Java_HelloJNI_sayHello(JNIEnv *, jobject);
 #include <stdio.h>
 #include <jni.h>
 
-JNIEXPORT void JNICALL Java_HelloJNI_sayHello(JNIEnv *env, jobject obj)
+JNIEXPORT jstring JNICALL Java_HelloJNI_sayHello(JNIEnv *env, jobject obj)
 {
-    printf("hello JNI\n");
-    return;
+    return (*env)->NewStringUTF(env,"Hello from JNI !");
 }
 ```
 
@@ -251,98 +267,173 @@ g++ -fpic -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/linux" -shared -o libnati
 java -Djava.library.path=. com.example.ndk.NativeTest
 ```
 
-## 3. JNI基础
+## 4. 数据类型
 
-### 3.1 JNI流程
+JNI 程序中涉及了三种数据类型，分别是：
 
-native程序主要做了这么几件事：
+* Java 类型
+* JNI 类型
+* C/C++ 类型
+
+在 java 程序中我们使用的是 Java 类型，C/C++ 程序中拿到的是 JNI 类型，我们需要将其转换为 C/C++ 类型，使用 C/C++ 类型再去调用 C/C++ 层函数完成计算或IO操作等任务后，将结果再转换为 JNI 类型返回后，在 java 代码中，我们就能收到对应的 Java 类型。
+
+我们可以在 $JAVA_HOME/inlcude/jni.h 文件中查看到 jni 中基本类型的定义：
+
+```c
+typedef unsigned char   jboolean;
+typedef unsigned short  jchar;
+typedef short           jshort;
+typedef float           jfloat;
+typedef double          jdouble;
+typedef jint            jsize;
+```
+
+jbyte, jint and jlong 是和 CPU 平台(我的机器是intel 64位)相关的，定义在 jni_md.h 中：
+
+$JAVA_HOME/include/linux/jni_md.h
+
+```c
+typedef int jint;
+#ifdef _LP64
+typedef long jlong;
+#else
+typedef long long jlong;
+#endif
+
+typedef signed char jbyte;
+```
+
+x86_64 平台梳理如下：
+
+| Java 类型 | JNI 类型 | C/C++ 类型     |
+| --------- | -------- | -------------- |
+| boolean   | jboolean | unsigned char  |
+| byte      | jbyte    | signed char    |
+| char      | jchar    | unsigned short |
+| short     | jshort   | signed short   |
+| int       | jint     | int            |
+| long      | jlong    | long           |
+| float     | jfloat   | float          |
+| double    | jdouble  | double         |
+
+引用类型也定义在 jni.h 中，总结如下：
+
+| java 类型           | JNI 引用类型  |
+| ------------------- | ------------- |
+| java.lang.Object    | jobject       |
+| java.lang.String    | jstring       |
+| java.lang.Class     | jclass        |
+| java.lang.Throwable | jthrowable    |
+| byte[]              | jbyteArray    |
+| Object[]            | jobjectArray  |
+| boolean[]           | jbooleanArray |
+| char[]              | jcharArray    |
+| short[]             | jshortArray   |
+| int[]               | jintArray     |
+| long[]              | jlongArray    |
+| float[]             | jfloatArray   |
+| double[]            | jdoubleArray  |
+
+## 5. 数据类型转换
+
+native 程序主要做了这么几件事：
 
 1. 接收 JNI 类型的参数
 2. 参数类型转换，JNI 类型转换为 Native 类型
 3. 执行 Native 代码
 4. 创建一个 JNI 类型的返回对象，将结果拷贝到这个对象并返回结果
 
-### 3.2 JNI类型
+其中很多代码都是在做类型转换的操作，下面我们来看看类型转换的示例。
 
-JNI 中定义了与 Java 类型对应的 JNI 类型：
+### 5.1 基本类型
 
-- 基本类型：jint, jbyte, jshort, jlong, jfloat, jdouble, jchar, jboolean 对应 Java 中的原始类型 int, byte, short, long, float, double, char, boolean
-- 引用类型：jobject 对应 java.lang.Object。还定义了以下的子类：
-  - jclass 对应 java.lang.Class
-  - jstring 对应 java.lang.String
-  - jthrowable 对应 java.lang.Throwable
-  - jarray 对应 Java 的数组类型，有八种原始类型的数组：jintArray, jbyteArray, jshortArray, jlongArray, jfloatArray, jdoubleArray, jcharArray, jbooleanArray 和一种 object 数组 jobjectArray
+基本类型无需做转换，直接使用：
 
-### 3.3 示例
-
-本节的示例主要展示 java 和 c 层之间数据类型的转换与方法访问，用于开发时的参考。
-
-##### 3.3.1 原始类型
+java 层：
 
 ```java
-
-//java
 private native double average(int n1, int n2);
+```
 
-//c++
-JNIEXPORT jdouble JNICALL Java_TestJNIPrimitive_average(
-    JNIEnv *env, jobject obj, jint n1, jint n2)
-{
+c/c++ 层：
+
+```c++
+JNIEXPORT jdouble JNICALL Java_HelloJNI_average(JNIEnv *env, jobject jobj, jint n1, jint n2) {
     //原始类型不用做转换，直接使用
     cout << "n1 = " << n1 << ", n2 = " << n2 << endl;
     return jdouble(n1 + n2)/2.0;
 }
 ```
 
-##### 3.2.2 字符串
+### 5.2 字符串
+
+为了在 C/C++ 中使用 Java 字符串，需要先将 Java 字符串转换成 C 字符串。用 GetStringChars 函数可以将 Unicode 格式的 Java 字符串转换成 C 字符串，用 GetString-UTFChars 函数可以将 UTF-8 格式的 Java 字符串转换成 C 字符串。这些函数的第三个参数均为 isCopy，它让调用者确定返回的 C 字符串地址指向副本还是指向堆中的固定对象。
+
+java 层：
 
 ```java
-//java
 private native String sayHello(String msg);
+```
 
-//c++
-JNIEXPORT jstring JNICALL Java_TestJNIString_sayHello(
-    JNIEnv *env, jobject obj, jstring inJNIString)
-{
-    //将 java 中的 String 转换为 char*
-    const char* inStr = env->GetStringUTFChars(inJNIString, NULL);
-    if(NULL == inStr)
-        return NULL;
+c/c++ 层：
 
-    //内存清理工作
-    cout << "the received string is " << inStr << endl;
-    env->ReleaseStringUTFChars(inJNIString, inStr);
+```c++
+JNIEXPORT jstring JNICALL Java_HelloJNI_sayHello__Ljava_lang_String_2(JNIEnv *env, jobject jobj, jstring str) {
+  
+    //jstring -> char*
+    jboolean isCopy;
+    const char* cStr = env->GetStringUTFChars(str, &isCopy);
+  
+    if (nullptr == cStr) {
+        return nullptr;
+    }
 
-    string outString;
-    cout << "Enter a String:";
-    cin >> outString;
+    if (JNI_TRUE == isCopy) {
+        cout << "C 字符串是java字符串的一份拷贝" << endl;
+    } else {
+        cout << "C 字符串指向 java 层的字符串" << endl;
+    }
+
+    cout << "C/C++ 层接收到的字符串是 " << inStr << endl;
+  
+    //通过JNI GetStringChars 函数和 GetStringUTFChars 函数获得的C字符串在原生代码中
+    //使用完之后需要正确地释放，否则将会引起内存泄露。
+    env->ReleaseStringUTFChars(str, inStr);
+
+    string outString = "Hello, JNI";
     // char* 转换为 string
     return env->NewStringUTF(outString.c_str());
 }
 ```
 
+### 5.3 数组
 
-
-##### 3.2.3 数组
+java 层：
 
 ```java
- //java
-// 返回数组double[2]，其中double[0]为和，double[1]为平均数
 private native double[] sumAndAverage(int[] numbers);
+```
 
-//c++
-JNIEXPORT jdoubleArray JNICALL Java_TestJNIPrimitiveArray_sumAndAverage(
-    JNIEnv *env, jobject obj, jintArray inJNIArray)
-{
-    //int[] -> jintArray -> jint*
-    jint* inArray = env->GetIntArrayElements(inJNIArray, NULL);
-    if(NULL == inArray) return NULL;
+c++ 层：
+
+```cpp
+JNIEXPORT jdoubleArray JNICALL Java_HelloJNI_sumAndAverage(JNIEnv *env, jobject obj, jintArray inJNIArray) {
+    //类型转换 int[] -> jintArray -> jint*
+    jboolean isCopy;
+    jint* inArray = env->GetIntArrayElements(inJNIArray, &isCopy);
+
+    if (JNI_TRUE == isCopy) {
+        cout << "C 层的数组是 java 层数组的一份拷贝" << endl;
+    } else {
+        cout << "C 层的数组指向 java 层的数组" << endl;
+    }
+
+    if(nullptr == inArray) return nullptr;
     //获取到数组长度
     jsize length = env->GetArrayLength(inJNIArray);
 
     jint sum = 0;
-    for(int i = 0; i < length; ++i)
-    {
+    for(int i = 0; i < length; ++i) {
         sum += inArray[i];
     }
 
@@ -350,89 +441,84 @@ JNIEXPORT jdoubleArray JNICALL Java_TestJNIPrimitiveArray_sumAndAverage(
     //释放数组
     env->ReleaseIntArrayElements(inJNIArray, inArray, 0); // release resource
 
+    //构造返回数据
     jdouble outArray[] = {sum, average};
     jdoubleArray outJNIArray = env->NewDoubleArray(2);
     if(NULL == outJNIArray) return NULL;
+    //向 jdoubleArray 写入数据
     env->SetDoubleArrayRegion(outJNIArray, 0, 2, outArray);
     return outJNIArray;
-
 }
 ```
 
-##### 3.2.4 访问对象的实例变量
+## 6. C层访问Java类的field
+
+java 层：
 
 ```java
-//java
-public class TestJNIInstanceVariable{
-    static {
-        System.loadLibrary("myjni");
-    }
-
-    private int number = 88;
-    private String message = "Hello from Java";
-
-    private native void modifyInstanceVariable();
-
-    public static void main(String[] args){
-        TestJNIInstanceVariable test = new TestJNIInstanceVariable();
-        test.modifyInstanceVariable();
-
-        System.out.println("In Java, int is " + test.number);
-        System.out.println("In Java, String is " + test.message);
-    }
-}
+//成员变量
+private int number = 88;
+private String message = "Hello from Java";
+//静态变量
+private static double numberStatic = 1998.2;
+//访问对象
+private native void modifyVariable();
 ```
 
-```c
-//c++
-#include "TestJNIInstanceVariable.h"
-#include <iostream>
+c 层：
 
-using namespace std;
+```cpp
+JNIEXPORT void JNICALL Java_HelloJNI_modifyVariable(JNIEnv *env, jobject obj) {
+    //0.获取到 jcalss
+    jclass thisClass = env->GetObjectClass(obj);
+  
+    //1.获取到 filed 的 ID
+    jfieldID numberId = env->GetFieldID(thisClass, "number", "I");
+    if (nullptr == numberId) {
+        return;
+    }
+    //2.根据 id 获取到 filed 
+    jint number = env->GetIntField(obj, numberId);
+    cout << "In C++, the number from java is " << number << endl;
 
-JNIEXPORT void JNICALL Java_TestJNIInstanceVariable_modifyInstanceVariable(
-    JNIEnv *env, jobject thisObj)
-{
-    // Get a reference to this object's class
-    jclass thisClass = env->GetObjectClass(thisObj);
-
-    // Int
-    // Get the Field ID of the instance variables "number"
-    jfieldID fidNumber = env->GetFieldID(thisClass, "number", "I");
-    if(NULL == fidNumber) return;
-
-    // Get the int given the Field ID
-    jint number = env->GetIntField(thisObj, fidNumber);
-    cout << "In C++, the int is " << number << endl;
-
-    // Change the variable
+    //3.给 filed 赋值
     number = 99;
-    env->SetIntField(thisObj, fidNumber, number);
+    env->SetIntField(obj, numberId, number);
 
-    // String
-    // Get the Field ID of the instance variables "message"
-    jfieldID fidMessage = env->GetFieldID(thisClass, "message", "Ljava/lang/String;");
-    if(NULL == fidMessage) return;
+    //获取一个 String 成员变量，与获取 number 类似
+    jfieldID messageId = env->GetFieldID(thisClass, "message", "Ljava/lang/String;");
+    if(NULL == messageId) return;
 
-    // Get the int given the Field ID
-    jstring message =  (jstring)env->GetObjectField(thisObj, fidMessage);
+    jstring message =  (jstring)env->GetObjectField(obj, messageId);
 
-    // Create a C-String with JNI String
     const char* str = env->GetStringUTFChars(message, NULL);
     if(NULL == str) return;
 
-    cout << "In C++, the string is " << str << endl;
+    cout << "In C++, the message is " << str << endl;
+    //内存清理
+    env->ReleaseStringUTFChars(message, str);
 
-    // Create a new C-String and assign to the JNI string
     message = env->NewStringUTF("Hello from C++");
     if(NULL == message) return;
 
-    env->SetObjectField(thisObj, fidMessage, message);
+    env->SetObjectField(obj, messageId, message);
+
+    //访问静态变量
+    jfieldID staticNumberId = env->GetStaticFieldID(thisClass, "numberStatic", "D");
+    if (nullptr == staticNumberId) {
+        return;
+    }
+    jdouble number2 = env->GetStaticDoubleField(thisClass, staticNumberId);
+    cout << "In C++, the static double is " << number2 << endl;
+
+    number2 = 77.88;
+    env->SetStaticDoubleField(thisClass, fidStaticNumber, number2);
+
 }
 
 ```
 
-通过 GetFieldID 获取实例变量的字段 ID，这需要你提供变量的名称以及其字段的描述符：
+GetFieldID 的最后一个参数是字段描述符：
 
 | **描述符**   | **含义** |
 | ------------------ | -------------- |
@@ -448,49 +534,10 @@ JNIEXPORT void JNICALL Java_TestJNIInstanceVariable_modifyInstanceVariable(
 | Ljava/lang/String  | String         |
 | [Ljava/lang/String | String[]       |
 
-##### 3.2.5 访问类的静态变量
 
-```java
-//java
-public class TestJNIStaticVariable{
-    static {
-        System.loadLibrary("myjni");
-    }
+## 7. C层调用Java层方法
 
-    private static double number = 55.66;
-
-    private native void modifyStaticVariable();
-
-    public static void main(String args[]) {
-        TestJNIStaticVariable test = new TestJNIStaticVariable();
-        test.modifyStaticVariable();
-        System.out.println("In Java, the double is " + number);
-    }
-}
-```
-
-```cpp
-#include "TestJNIStaticVariable.h"
-#include <iostream>
-using namespace std;
-
-JNIEXPORT void JNICALL Java_TestJNIStaticVariable_modifyStaticVariable(
-    JNIEnv *env, jobject thisObj)
-{
-    jclass thisClass = env->GetObjectClass(thisObj);
-
-    jfieldID fidNumber = env->GetStaticFieldID(thisClass, "number", "D");
-    if(NULL == fidNumber) return;
-
-    jdouble number = env->GetStaticDoubleField(thisClass, fidNumber);
-    cout << "In C++, the double is " << number << endl;
-
-    number = 77.88;
-    env->SetStaticDoubleField(thisClass, fidNumber, number);
-}
-```
-
-##### 3.2.6 回调实例方法和静态方法
+java 层：
 
 ```java
 public class TestJNICallBackMethod{
@@ -521,6 +568,8 @@ public class TestJNICallBackMethod{
     }
 }
 ```
+
+cpp 层：
 
 ```cpp
 #include "TestJNICallBackMethod.h"
@@ -561,270 +610,9 @@ JNIEXPORT void JNICALL Java_TestJNICallBackMethod_nativeMethod(
 }
 ```
 
-##### 3.2.7 回调 super.xx() 方法
-
-JNI 提供了一组 CallNonvirtual `<Type>`Method() 函数来调用在子类重写的方法（类型在 Java 中调用 super.methodName())
-
-通过 GetMethodID() 获取方法ID
-基于方法ID，调用 CallNonvirtual `<Type>`Method() 来回调父类方法
-JNI 中用于调用重载的父类方法函数有：
-
-```c
-NativeType CallNonvirtual<type>Method(JNIEnv *env, jobject obj, jclass cls, jmethodID methodID, ...);
-NativeType CallNonvirtual<type>MethodA(JNIEnv *env, jobject obj, jclass cls, jmethodID methodID, const jvalue *args);
-NativeType CallNonvirtual<type>MethodV(JNIEnv *env, jobject obj, jclass cls, jmethodID methodID, va_list args);
-```
-
-##### 3.2.8 在 native 中创建对象
-
-```java
-public class TestJavaConstructor{
-    static {
-        System.loadLibrary("myjni");
-    }
-
-    private native Integer getIntegerObject(int number);
-
-    public static void main(String[] args){
-        TestJavaConstructor obj = new TestJavaConstructor();
-        System.out.println("In Java, the number is : " + obj.getIntegerObject(9999));
-    }
-}
-```
-
-```c
-#include "TestJavaConstructor.h"
-#include <iostream>
-using namespace std;
-
-JNIEXPORT jobject JNICALL Java_TestJavaConstructor_getIntegerObject
-    (JNIEnv *env, jobject thisObj, jint number)
-{
-    jclass cls = env->FindClass("java/lang/Integer");
-
-    jmethodID midInit = env->GetMethodID(cls, "<init>", "(I)V");
-    if(NULL == midInit) return NULL;
-
-    // Call back constructor to allocate a new instance, with an int argument
-    jobject newObj = env->NewObject(cls, midInit, number);
-
-    // Try running the toString() on this newly create object
-    jmethodID midToString = env->GetMethodID(cls, "toString", "()Ljava/lang/String;");
-    if (NULL == midToString) return NULL;
-
-    jstring resultJNIStr = (jstring)env->CallObjectMethod(newObj, midToString);
-    const char *resultStr = env->GetStringUTFChars(resultJNIStr, NULL);
-    cout << "In C++, the number is " << resultStr << endl;
-
-    return newObj;
-}
-```
-
-JNI 中用于创建对象的函数有：
-
-```c
-jclass FindClass(JNIEnv *env, const char *name);
- 
-jobject NewObject(JNIEnv *env, jclass cls, jmethodID methodID, ...);
-jobject NewObjectA(JNIEnv *env, jclass cls, jmethodID methodID, const jvalue *args);
-jobject NewObjectV(JNIEnv *env, jclass cls, jmethodID methodID, va_list args);
-   // Constructs a new Java object. The method ID indicates which constructor method to invoke
- 
-jobject AllocObject(JNIEnv *env, jclass cls);
-  // Allocates a new Java object without invoking any of the constructors for the object.
-
-```
-
-##### 3.2.9 对象数组
-
-```java
-import java.util.ArrayList;
- 
-public class TestJNIObjectArray {
-   static {
-      System.loadLibrary("myjni"); 
-   }
-   // Native method that receives an Integer[] and
-   //  returns a Double[2] with [0] as sum and [1] as average
-   private native Double[] sumAndAverage(Integer[] numbers);
- 
-   public static void main(String args[]) {
-      Integer[] numbers = {11, 22, 32};  // auto-box
-      Double[] results = new TestJNIObjectArray().sumAndAverage(numbers);
-      System.out.println("In Java, the sum is " + results[0]);  // auto-unbox
-      System.out.println("In Java, the average is " + results[1]);
-   }
-}
-```
-
-```cpp
-#include "TestJNIObjectArray.h"
-#include <iostream>
-using namespace std;
-
-JNIEXPORT jobjectArray JNICALL Java_TestJNIObjectArray_sumAndAverage(
-    JNIEnv *env, jobject thisObj, jobjectArray inJNIArray)
-{
-    jclass classInteger = env->FindClass("java/lang/Integer");
-
-    // Use Integer.intValue() to retrieve the int
-    jmethodID midIntValue = env->GetMethodID(classInteger, "intValue", "()I");
-    if (NULL == midIntValue) return NULL;
-
-    jsize length = env->GetArrayLength(inJNIArray);
-    jint sum = 0;
-    for (int i = 0; i < length; i++) {
-        jobject objInteger = env->GetObjectArrayElement(inJNIArray, i);
-        if (NULL == objInteger) return NULL;
-        jint value = env->CallIntMethod(objInteger, midIntValue);
-        sum += value;
-    }
-
-    double average = (double)sum / length;
-    cout << "In C++, the sum is " << sum << endl;
-    cout << "In C++, the average is " << average << endl;
-
-    // Get a class reference for java.lang.Double
-    jclass classDouble = env->FindClass("java/lang/Double");
-
-    // Allocate a jobjectArray of 2 java.lang.Double
-    jobjectArray outJNIArray = env->NewObjectArray(2, classDouble, NULL);
-
-    // Construct 2 Double objects by calling the constructor
-    jmethodID midDoubleInit = env->GetMethodID(classDouble, "<init>", "(D)V");
-    if (NULL == midDoubleInit) return NULL;
-    jobject objSum = env->NewObject(classDouble, midDoubleInit, (double)sum);
-    jobject objAve = env->NewObject(classDouble, midDoubleInit, average);
-
-    // Set to the jobjectArray
-    env->SetObjectArrayElement(outJNIArray, 0, objSum);
-    env->SetObjectArrayElement(outJNIArray, 1, objAve);
-
-    return outJNIArray;
-}
-```
-
-JNI 中用于创建和操作对象数组的函数有：
-
-```cpp
-jobjectArray NewObjectArray(JNIEnv *env, jsize length, jclass elementClass, jobject initialElement);
-   // Constructs a new array holding objects in class elementClass.
-   // All elements are initially set to initialElement.
- 
-jobject GetObjectArrayElement(JNIEnv *env, jobjectArray array, jsize index);
-   // Returns an element of an Object array.
- 
-void SetObjectArrayElement(JNIEnv *env, jobjectArray array, jsize index, jobject value);
-   // Sets an element of an Object array.
-```
-
-##### 3.2.10 局部和全局引用
-
-在 native 方法中，我们经常使用 FindClass(), GetMethodID(), GetFieldID() 来获取 jclass, jmethodID 和 jfieldID。这些方法的调用成本很高，我们应该获取一次并且将其缓存以供后续使用，而不是重复执行调用，从而消除开销。
-
-JNI 中 native 代码使用的对象引用分为两种：局部引用和全局引用：
-
-1. 局部引用在 native 方法中创建，并在退出 native 方法时销毁。可以使用 DeleteLocalRef() 显示的使局部引用失效，以便可以进行垃圾回收。
-2. 全局引用只有显示使用 DeleteGlobalRef() 才会被销毁。可以通过 NewGlobalRef() 从局部引用创建全局引用。
-
-[
-](https://blog.csdn.net/weiwei9363/article/details/97886291)
-
-```java
-public class TestJNIReference {
-   static {
-      System.loadLibrary("myjni"); // myjni.dll (Windows) or libmyjni.so (Unixes)
-   }
- 
-   // A native method that returns a java.lang.Integer with the given int.
-   private native Integer getIntegerObject(int number);
- 
-   // Another native method that also returns a java.lang.Integer with the given int.
-   private native Integer anotherGetIntegerObject(int number);
- 
-   public static void main(String args[]) {
-      TestJNIReference test = new TestJNIReference();
-      System.out.println(test.getIntegerObject(1));
-      System.out.println(test.getIntegerObject(2));
-      System.out.println(test.anotherGetIntegerObject(11));
-      System.out.println(test.anotherGetIntegerObject(12));
-      System.out.println(test.getIntegerObject(3));
-      System.out.println(test.anotherGetIntegerObject(13));
-   }
-}
-```
-
-上面的代码有两个 native 方法，它们都返回 java.lang.Integer 对象。
-
-在 C/C++ 代码中，我们通过 FindClass() 需要获取 java.lang.Integer 的引用。然后找到 Integer 的构造函数ID。我们希望将这些都缓存起来以消除开销。
-
-下面代码是不起作用的：
-
-```cpp
-#include <jni.h>
-#include <stdio.h>
-#include "TestJNIReference.h"
- 
-// Global Reference to the Java class "java.lang.Integer"
-static jclass classInteger;
-static jmethodID midIntegerInit;
- 
-jobject getInteger(JNIEnv *env, jobject thisObj, jint number) {
- 
-   // Get a class reference for java.lang.Integer if missing
-   if (NULL == classInteger) {
-      printf("Find java.lang.Integer\n");
-      classInteger = (*env)->FindClass(env, "java/lang/Integer");
-   }
-   if (NULL == classInteger) return NULL;
- 
-   // Get the Method ID of the Integer's constructor if missing
-   if (NULL == midIntegerInit) {
-      printf("Get Method ID for java.lang.Integer's constructor\n");
-      midIntegerInit = (*env)->GetMethodID(env, classInteger, "<init>", "(I)V");
-   }
-   if (NULL == midIntegerInit) return NULL;
- 
-   // Call back constructor to allocate a new instance, with an int argument
-   jobject newObj = (*env)->NewObject(env, classInteger, midIntegerInit, number);
-   printf("In C, constructed java.lang.Integer with number %d\n", number);
-   return newObj;
-}
- 
-JNIEXPORT jobject JNICALL Java_TestJNIReference_getIntegerObject
-          (JNIEnv *env, jobject thisObj, jint number) {
-   return getInteger(env, thisObj, number);
-}
- 
-JNIEXPORT jobject JNICALL Java_TestJNIReference_anotherGetIntegerObject
-          (JNIEnv *env, jobject thisObj, jint number) {
-   return getInteger(env, thisObj, number);
-}
-
-```
-
-上述代码中，我们调用 FindClass() 来获取 java.lang.Integer 的引用，并保存在全局的静态变量中。尽管如此，在下一次调用中，此引用不再有效（并且不是NULL）。这是因为FindClass（）返回一个本地引用，一旦该方法退出就会失效。
-
-为了解决这个问题，我们需要从FindClass（）返回的局部引用创建一个全局引用。然后我们可以释放局部引用。修改后的代码如下：
-[
-](https://blog.csdn.net/weiwei9363/article/details/97886291)
-
-```cpp
- // Get a class reference for java.lang.Integer if missing
-   if (NULL == classInteger) {
-      printf("Find java.lang.Integer\n");
-      // FindClass returns a local reference
-      jclass classIntegerLocal = (*env)->FindClass(env, "java/lang/Integer");
-      // Create a global reference from the local reference
-      classInteger = (*env)->NewGlobalRef(env, classIntegerLocal);
-      // No longer need the local reference, free it!
-      (*env)->DeleteLocalRef(env, classIntegerLocal);
-   }
-```
-
 ## 参考资料
 
-- 
 - [JNI 简明教程之手把手教你入门](https://blog.csdn.net/weiwei9363/article/details/97886291)
 - [cross-compiling-for-android-with-the-ndk](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html#cross-compiling-for-android-with-the-ndk)
 - [Android 官方cmake文档](https://developer.android.com/ndk/guides/cmake)
+- 《Android C++高级编程》第三章
