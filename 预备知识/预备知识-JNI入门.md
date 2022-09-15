@@ -529,7 +529,6 @@ GetFieldID 的最后一个参数是字段描述符：
 | Ljava/lang/String  | String         |
 | [Ljava/lang/String | String[]       |
 
-
 ## 7. C层调用Java层方法
 
 java 层：
@@ -611,3 +610,4 @@ JNIEXPORT void JNICALL Java_TestJNICallBackMethod_nativeMethod(
 - [cross-compiling-for-android-with-the-ndk](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html#cross-compiling-for-android-with-the-ndk)
 - [Android 官方cmake文档](https://developer.android.com/ndk/guides/cmake)
 - 《Android C++高级编程》第三章
+- [JNI/NDK开发指南](https://blog.csdn.net/xyang81/category_9263427.html)
