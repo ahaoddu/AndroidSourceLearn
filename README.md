@@ -4,45 +4,67 @@
 
 ## 计划
 
-以下是教程的目录，陆续更新中：
+![](https://gitee.com/stingerzou/pic-bed/raw/master/AndroidFramework源码分析与实践.png)
+
+## 开发环境
+
+[Android源码分析与实践-环境准备与源码下载](https://github.com/dducd/AndroidSourceLearn/blob/main/1.Android%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD.md)
+
+## 预备知识
+
+预备知识这块我会挑一些重要的和容易忽略的点讲讲，不要在全部掌握后再学习framework，应该在学习过程中查疑补缺：
+
+[预备知识-如何在Android平台执行C/C++程序](https://github.com/dducd/AndroidSourceLearn/blob/main/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20C%2B%2B%E7%A8%8B%E5%BA%8F.md)
+
+[预备知识-JNI入门](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E5%85%A5%E9%97%A8.md)
+
+[预备知识-JNI数据类型](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/5.2.%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
+
+预备知识-C层访问Java层
+
+预备知识-JNI异常处理
+
+预备知识-JNI与多线程
+
+预备知识-JNI与NIO
+
+预备知识-Android.bp
 
 ## 核心基础
 
-[1.Android源码分析与实践-环境准备与源码下载](https://github.com/dducd/AndroidSourceLearn/blob/main/1.Android%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD.md)
+[Binder框架入门与C程序示例](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/9.Binder%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8%E4%B8%8EC%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B.md)
 
-[2. 预备知识-如何在Android平台执行C/C++程序](https://github.com/dducd/AndroidSourceLearn/blob/main/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20C%2B%2B%E7%A8%8B%E5%BA%8F.md)
+Binder之C++示例
 
-[3.Linux驱动入门-模块](https://github.com/dducd/AndroidSourceLearn/blob/main/2.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E6%A8%A1%E5%9D%97.md)
+Binder之Java示例
 
-[4.Linux驱动入门-驱动](https://github.com/dducd/AndroidSourceLearn/blob/main/3.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E9%A9%B1%E5%8A%A8.md)
+理解系统服务框架
 
-[5.预备知识-JNI入门](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E5%85%A5%E9%97%A8.md)
-
-6.预备知识-JNI进阶
-
-7.Android App访问驱动
-
-8.预备知识-Android.bp
-
-[9.Binder框架入门与C程序示例](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/9.Binder%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8%E4%B8%8EC%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B.md)
-
-10.Binder之C++示例
-
-11.Binder之Java示例
-
-12.系统服务框架入门
-
-13.添加系统服务
-
+添加系统服务
 
 ## 系统开发入门
 
+系统配置
 
-下图是计划中的路线图，陆续更新中，后续根据实际情况会做一些微调。
+添加自定义模块
 
-![](https://gitee.com/stingerzou/pic-bed/raw/master/AndroidFramework源码分析与实践.png)
+添加预定义模块
 
-## 源码下载
+添加系统服务
+
+添加hidl服务
+
+## 给你的Android添加一个硬件访问服务
+
+[Linux驱动入门-模块](https://github.com/dducd/AndroidSourceLearn/blob/main/2.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E6%A8%A1%E5%9D%97.md)
+
+[Linux驱动入门-驱动](https://github.com/dducd/AndroidSourceLearn/blob/main/3.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E9%A9%B1%E5%8A%A8.md)
+
+硬件的直接访问
+
+给系统添加一个硬件访问服务
+
+## 源码
 
 教程的源码都在 github 仓库的 [demos](https://github.com/ahaoddu/AndroidSourceLearn/tree/main/Demos) 目录下。
 
