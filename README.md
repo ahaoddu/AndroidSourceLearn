@@ -8,15 +8,15 @@
 
 ## 开发环境
 
-[Android源码分析与实践-环境准备与源码下载](https://github.com/dducd/AndroidSourceLearn/blob/main/1.Android%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD.md)
+[Android源码分析与实践-环境准备与源码下载](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Android%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD.md)
 
 ## 预备知识
 
 预备知识这块我会挑一些重要的和容易忽略的点讲讲，不要在全部掌握后再学习framework，应该在学习过程中查疑补缺：
 
-[预备知识-如何在Android平台执行C/C++程序](https://github.com/dducd/AndroidSourceLearn/blob/main/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20C%2B%2B%E7%A8%8B%E5%BA%8F.md)
+[预备知识-如何在Android平台执行C/C++程序](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/2.%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20C%2B%2B%E7%A8%8B%E5%BA%8F.md)
 
-[预备知识-JNI入门](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E5%85%A5%E9%97%A8.md)
+[预备知识-JNI入门](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/3.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E6%A8%A1%E5%9D%97.md)
 
 [预备知识-JNI数据类型](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/5.2.%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
 
@@ -29,6 +29,8 @@
 预备知识-JNI与NIO
 
 预备知识-Android.bp
+
+预备知识-selinux
 
 ## 核心基础
 
@@ -58,7 +60,7 @@ Binder之Java示例
 
 [Linux驱动入门-模块](https://github.com/dducd/AndroidSourceLearn/blob/main/2.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E6%A8%A1%E5%9D%97.md)
 
-[Linux驱动入门-驱动](https://github.com/dducd/AndroidSourceLearn/blob/main/3.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E9%A9%B1%E5%8A%A8.md)
+[Linux驱动入门-驱动](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/4.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E9%A9%B1%E5%8A%A8.md)
 
 硬件的直接访问
 
