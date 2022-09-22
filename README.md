@@ -64,6 +64,18 @@ Binder之Java示例
 
 给系统添加一个硬件访问服务
 
+## 启动过程
+
+init
+
+zygote
+
+servicemanager
+
+systemserver
+
+启动Android App
+
 ## 源码
 
 教程的源码都在 github 仓库的 [demos](https://github.com/ahaoddu/AndroidSourceLearn/tree/main/Demos) 目录下。
