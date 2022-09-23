@@ -34,13 +34,21 @@
 
 预备知识-Android中的智能指针
 
+预备知识-C++多线程编程
+
+预备知识-C++内部类
+
 ## 核心基础
 
 [Binder框架入门与C程序示例](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/9.Binder%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8%E4%B8%8EC%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B.md)
 
 Binder之C++示例
 
+Binder之C++源码分析
+
 Binder之Java示例
+
+Binder之Java源码分析
 
 理解系统服务框架
 
