@@ -32,6 +32,8 @@
 
 预备知识-selinux
 
+预备知识-Android中的智能指针
+
 ## 核心基础
 
 [Binder框架入门与C程序示例](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/9.Binder%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8%E4%B8%8EC%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B.md)

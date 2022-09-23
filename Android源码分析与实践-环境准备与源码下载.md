@@ -145,7 +145,7 @@ lunch aosp_x86_64-eng
 
 * 删除 scripts/selinux/mdp/mdp.c 文件中的  #include <sys/socket.h>
 * 删除 scripts/selinux/genheaders/genheaders.c 文件中的  #include <sys/socket.h>
-* 在 security/selinux/include/classmap.h 头部添加 #include <sys/socket.h>
+* 在 security/selinux/include/classmap.h 头部添加 #include <linux/socket.h>
 
 执行编译脚本 sh build.sh 即可编译成功
 
