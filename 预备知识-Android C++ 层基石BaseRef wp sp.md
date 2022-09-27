@@ -1,6 +1,6 @@
 # 预备知识-Android C++ 层基石BaseRef wp sp
 
-## 引子
+## 引子 
 
 
 ## LightRefBase
@@ -11,15 +11,18 @@ class LightRefBase
 {
 public:
     inline LightRefBase() : mCount(0) { }
+
     inline void incStrong(__attribute__((unused)) const void* id) const {
         mCount.fetch_add(1, std::memory_order_relaxed);
     }
+
     inline void decStrong(__attribute__((unused)) const void* id) const {
         if (mCount.fetch_sub(1, std::memory_order_release) == 1) {
             std::atomic_thread_fence(std::memory_order_acquire);
             delete static_cast<const T*>(this);
         }
     }
+
     //! DEBUGGING ONLY: Get current strong ref count.
     inline int32_t getStrongCount() const {
         return mCount.load(std::memory_order_relaxed);
@@ -39,6 +42,8 @@ private:
     mutable std::atomic<int32_t> mCount;
 };
 ```
+
+
 
 
 ## 参考资料

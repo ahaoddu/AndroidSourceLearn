@@ -36,7 +36,7 @@
 
 预备知识-C++多线程编程
 
-预备知识-C++原子操作
+[预备知识-理解 C++ 的 Memory Order](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/%E7%90%86%E8%A7%A3%20C%2B%2B%20%E7%9A%84%20Memory%20Order.md)
 
 预备知识-C++内部类
 
