@@ -16,7 +16,7 @@
 
 [预备知识-如何在Android平台执行C/C++程序](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/2.%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20C%2B%2B%E7%A8%8B%E5%BA%8F.md)
 
-[预备知识-JNI入门](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/3.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E6%A8%A1%E5%9D%97.md)
+[预备知识-JNI入门](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/5.1%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E5%85%A5%E9%97%A8.md)
 
 [预备知识-JNI数据类型](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/5.2.%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
 
