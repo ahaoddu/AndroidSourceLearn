@@ -36,9 +36,7 @@
 
 [添加预编译模块](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/%E6%B7%BB%E5%8A%A0%E9%A2%84%E7%BC%96%E8%AF%91%E6%A8%A1%E5%9D%97.md)
 
-添加系统服务
-
-添加hidl服务
+ [SEAndroid入门](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/SEAndroid%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8.md)
 
 ## 给你的Android添加一个硬件访问服务
 
