@@ -65,6 +65,17 @@ systemserver
 
 启动Android App
 
+
+## 应用四大组件
+## 系统核心组件
+
+## 输入系统
+
+## 显示系统
+
+## 其他硬件分析
+
+## 系统软件开发
 ## 源码
 
 教程的源码都在 github 仓库的 [demos](https://github.com/ahaoddu/AndroidSourceLearn/tree/main/Demos) 目录下。
