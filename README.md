@@ -20,7 +20,7 @@
 
 [预备知识-JNI数据类型](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/5.2.%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
 
-[预备知识-理解 C++ 的 Memory Order](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/%E7%90%86%E8%A7%A3%20C%2B%2B%20%E7%9A%84%20Memory%20Order.md)
+[预备知识-理解 C++ 的 Memory Order](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/C%26C%2B%2B/%E7%90%86%E8%A7%A3%20C%2B%2B%20%E7%9A%84%20Memory%20Order.md)
 
 ## Android 系统开发入门
 
@@ -66,8 +66,9 @@ systemserver
 启动Android App
 
 
-## 应用四大组件
 ## 系统核心组件
+## 应用四大组件
+
 
 ## 输入系统
 
