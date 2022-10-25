@@ -122,7 +122,7 @@ struct binder_state *binder_open(const char* driver, size_t mapsize)
         goto fail_open;
     }
 
-    bs->mapsize = mapsize;
+    bs->mapsize = mapsize;nei
     bs->mapped = mmap(NULL, mapsize, PROT_READ, MAP_PRIVATE, bs->fd, 0);
     if (bs->mapped == MAP_FAILED) {
         fprintf(stderr,"binder: cannot map device (%s)\n",
