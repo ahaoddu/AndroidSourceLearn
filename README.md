@@ -26,7 +26,7 @@ framework 涉及的面很广，应该在学习过程中不停地查疑补缺：
   * JNI crash与异常处理
   * JNI 性能优化
 
-* 理解 C++ 的 Memory Order
+* [理解 C++ 的 Memory Order](https://juejin.cn/post/7158437747077120030)
 
 * Android 中的指针管理
 
@@ -48,7 +48,7 @@ framework 涉及的面很广，应该在学习过程中不停地查疑补缺：
   *  [c cpp 可执行程序](https://juejin.cn/post/7166826776868421662/)
   *  [Android Studio 项目](https://juejin.cn/post/7166834673019650056/)
 * [SEAndroid入门](https://juejin.cn/post/7166836133970591751/)
-* 添加预编译模块
+* [添加预编译模块](https://juejin.cn/post/7166873124296720397/)
 * 删除内置apk
 * Android 日志系统
 * Android 属性系统
