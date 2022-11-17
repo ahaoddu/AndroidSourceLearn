@@ -1,85 +1,83 @@
-# Android Framework 源码分析与实践
+# Android Framework 学习笔记
 
-## 引子
+文章同步更新到 [github](https://github.com/ahaoddu/AndroidSourceLearn)
 
 ## 计划
 
-![](https://gitee.com/stingerzou/pic-bed/raw/master/AndroidFramework源码分析与实践.png)
+大致的提纲和计划，可能有变动
+
+![](https://gitee.com/stingerzou/pic-bed/raw/master/img/Android%20Framework%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.png)
 
 ## 开发环境
 
-[Android源码分析与实践-环境准备与源码下载](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Android%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD.md)
+[Android Framework 开发环境准备与源码下载](https://juejin.cn/post/7140475109264850981/)
 
-## 预备知识
+## 查疑补缺
 
-预备知识这块我会挑一些重要的和容易忽略的点讲讲，不要在全部掌握后再学习framework，应该在学习过程中查疑补缺：
+framework 涉及的面很广，应该在学习过程中不停地查疑补缺：
 
-[预备知识-如何在Android平台执行C/C++程序](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/2.%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20C%2B%2B%E7%A8%8B%E5%BA%8F.md)
+* [如何在Android平台执行C/C++程序](https://juejin.cn/post/7166816766763466783/)
 
-[预备知识-JNI入门](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/5.1%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E5%85%A5%E9%97%A8.md)
+* JNI
+  * [JNI 入门](https://juejin.cn/post/7166820136916582431)
+  * [JNI 数据类型](https://juejin.cn/post/7166820337831641102)
+  * JNI 字符串处理
+  * JNI 中访问 Java
+  * JNI crash与异常处理
+  * JNI 性能优化
 
-[预备知识-JNI数据类型](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/5.2.%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-JNI%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
+* 理解 C++ 的 Memory Order
 
-[预备知识-理解 C++ 的 Memory Order](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/1.%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/C%26C%2B%2B/%E7%90%86%E8%A7%A3%20C%2B%2B%20%E7%9A%84%20Memory%20Order.md)
+* Android 中的指针管理
+
+
+## Binder
+* IPC 与 RPC 概念
+  * [binder 基本原理](https://juejin.cn/post/7166238795132567582)
+* 四个组成
+* 四个流程
+* 四层设计
+  * [C层示例与分析](https://juejin.cn/post/7166835048757329950/)
 
 ## Android 系统开发入门
 
-* [配置 Product](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/%E9%85%8D%E7%BD%AEProduct.md)
+* [Android Framework 配置 Product](https://juejin.cn/post/7166822405887754253/)
 * 添加自定义模块
-  * [C&amp;CPP 可执行程序](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E4%B9%8B%20C%26CPP%20%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F.md)
-  * [C&amp;CPP 库](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E4%B9%8B%20C%26CPP%20%E5%BA%93.md)
-  * [Java 库](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E4%B9%8B%20Java%20%E5%BA%93.md)
-  * [Android Studio 项目](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E4%B9%8B%20Android%20Studio%20%E9%A1%B9%E7%9B%AE.md)
-* [添加预编译模块](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/%E6%B7%BB%E5%8A%A0%E9%A2%84%E7%BC%96%E8%AF%91%E6%A8%A1%E5%9D%97.md)
-* [SEAndroid入门](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/SEAndroid%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8.md)
+  *  [Java 库](https://juejin.cn/post/7166826060317720607/)
+  *  [c cpp 库](https://juejin.cn/post/7166826482226970655/)
+  *  [c cpp 可执行程序](https://juejin.cn/post/7166826776868421662/)
+  *  [Android Studio 项目](https://juejin.cn/post/7166834673019650056/)
+* [SEAndroid入门](https://juejin.cn/post/7166836133970591751/)
+* 添加预编译模块
+* 删除内置apk
 * Android 日志系统
 * Android 属性系统
-  * 如何添加属性
-  * SELinux 与属性
-  * 属性系统框架与源码分析
-* Android adb 使用与源码分析
-* Android Binder
-  * [Binder之C层示例与分析](https://github.com/ahaoddu/AndroidKnowledgeHierarchy/blob/main/4.Framework%E5%BC%80%E5%8F%91/Binder%E4%B9%8BC%E5%B1%82%E7%A4%BA%E4%BE%8B%E4%B8%8E%E5%88%86%E6%9E%90.md)
-  * 驱动层分析
-  * C++ 层示例与分析
-  * Java 层示例与分析
-## 给你的Android添加一个硬件访问服务
-
-[Linux驱动入门-模块](https://github.com/dducd/AndroidSourceLearn/blob/main/2.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E6%A8%A1%E5%9D%97.md)
-
-[Linux驱动入门-驱动](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/4.Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E9%A9%B1%E5%8A%A8.md)
-
-硬件的直接访问
-
-给系统添加一个硬件访问服务
-
-## 启动过程
-
-init
-
-zygote
-
-servicemanager
-
-systemserver
-
-启动Android App
+* adb 的使用
+* 添加 binder 系统服务
+* 添加 hidl 服务
+* 添加系统硬件服务
+  * 驱动入门
+  * 硬件的直接访问
+  * 给系统添加一个硬件访问服务
 
 
-## 系统核心组件
-## 应用四大组件
+## 启动过程与核心组件
+
+* init
+* zygote
+* servicemanager
+* systemserver
+* 启动 Android App
+* 应用四大件与 framgment
 
 
 ## 输入系统
 
 ## 显示系统
 
-## 其他硬件分析
+## 主要硬件分析
 
-## 系统软件开发
-## 源码
-
-教程的源码都在 github 仓库的 [demos](https://github.com/ahaoddu/AndroidSourceLearn/tree/main/Demos) 目录下。
+## 系统 app 开发
 
 ## 关于我
 
@@ -87,6 +85,6 @@ systemserver
 - 2012 年开始从事 Android 系统定制和应用开发相关的工作
 - 2015 年国防科技大学本科毕业，毕业后从事 Android 相关的开发和研究工作
 - 2019年初开始创业，从事 Android 系统开发工作
-- 如果你对 Android 系统源码感兴趣可以扫码添加我的微信，相互学习交流。
-
+- 如果你对 Android 系统源码感兴趣可以扫码添加我的微信，一起进群学习交流。
+  
 ![27c7e38ee991b9d1fb42cb3bdf352a7.jpg](https://cdn.nlark.com/yuque/0/2022/jpeg/2613680/1662174041146-53015bfc-12f7-4023-9131-0a9e51fd00a2.jpeg#clientId=u0593d637-e239-4&crop=0&crop=0&crop=1&crop=1&from=drop&id=ud527bf55&margin=%5Bobject%20Object%5D&name=27c7e38ee991b9d1fb42cb3bdf352a7.jpg&originHeight=430&originWidth=430&originalType=binary&ratio=1&rotation=0&showTitle=false&size=42506&status=done&style=none&taskId=uf620381e-5767-4559-867e-093d91d3256&title=#crop=0&crop=0&crop=1&crop=1&id=qxLzV&originHeight=430&originWidth=430&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
