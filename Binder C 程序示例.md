@@ -26,12 +26,16 @@ Binder 在内核中注册为杂项设备，实际是一个字符驱动，了解 
 建议在[这里](https://github.com/ahaoddu/BinderCDemo)将源码下载到本地后，再继续后面的分析和学习。
 
 
-写代码之前我们需要明白整个程序涉及的对象和流程，参与跨进程通信的对象包括了：
+写代码之前我们需要明白：
 
-* client：客户端，访问服务
-* server：服务端，定义服务
+Binder 是一个 RPC（Remote Procedure Call） 框架，简单说就是使用 Binder，我们可以在 A 进程中访问 B 进程中定义的函数。
+
+整个程序涉及的对象：
+
+* server：服务端，定义服务，服务就是一堆函数。
+* client：客户端，访问服务，即访问 server 中定义的函数
 * servicemamager：用于管理服务
-* binder驱动：提供跨进程的数据传输功能
+* binder驱动：提供跨进程的数据传输功能即 IPC
 
 其工作流程如下图所示：
 
@@ -41,7 +45,7 @@ Binder 在内核中注册为杂项设备，实际是一个字符驱动，了解 
 简单归纳一下：
 * ServiceManager 完成在 Binder 驱动的注册，等待接受其他进程的请求
 * Server 向 ServiceManager 注册服务
-* Client 向 ServiceManger 查询服务，使用服务：通过 Binder 驱动调用定义在 Server 端的方法
+* Client 向 ServiceManger 查询服务，使用服务，即通过 Binder 驱动调用定义在 Server 端的方法
 
 ## 2. Server 端程序编写
 
