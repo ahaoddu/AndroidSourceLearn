@@ -1,55 +1,25 @@
 # Android Framework 学习笔记
 
-文章同步更新到 [github](https://github.com/ahaoddu/AndroidSourceLearn)
-
-## 计划
-
-大致的提纲和计划，可能有变动
-
-![](https://gitee.com/stingerzou/pic-bed/raw/master/img/Android%20Framework%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.png)
-
 ## 开发环境
 
-[Android Framework 开发环境准备与源码下载](https://juejin.cn/post/7140475109264850981/)
-
-## 查疑补缺
-
-framework 涉及的面很广，应该在学习过程中不停地查疑补缺：
-
-* [如何在Android平台执行C/C++程序](https://juejin.cn/post/7166816766763466783/)
-
-* JNI
-  * [JNI 入门](https://juejin.cn/post/7166820136916582431)
-  * [JNI 数据类型](https://juejin.cn/post/7166820337831641102)
-  * JNI 字符串处理
-  * JNI 中访问 Java
-  * JNI crash与异常处理
-  * JNI 性能优化
-
-* [理解 C++ 的 Memory Order](https://juejin.cn/post/7158437747077120030)
-
-* Android 中的指针管理
+[Android Framework 开发环境准备与源码下载](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Android%20Framework%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD.md)
 
 
 ## Binder
-* IPC 与 RPC 概念
-  * [binder 基本原理](https://juejin.cn/post/7166238795132567582)
+
+* 基本原理
 * 四个组成
 * 四个流程
 * 四层设计
-  * [C层示例与分析](https://juejin.cn/post/7166835048757329950/)
+
 
 ## Android 系统开发入门
 
-* [Android Framework 配置 Product](https://juejin.cn/post/7166822405887754253/)
+* Android Framework 配置 Product
 * 添加自定义模块
-  *  [Java 库](https://juejin.cn/post/7166826060317720607/)
-  *  [c cpp 库](https://juejin.cn/post/7166826482226970655/)
-  *  [c cpp 可执行程序](https://juejin.cn/post/7166826776868421662/)
-  *  [Android Studio 项目](https://juejin.cn/post/7166834673019650056/)
-* [SEAndroid入门](https://juejin.cn/post/7166836133970591751/)
-* [添加预编译模块](https://juejin.cn/post/7166873124296720397/)
-* 删除内置apk
+* SEAndroid入门
+* 添加预编译模块
+* 删除内置 apk
 * Android 日志系统
 * Android 属性系统
 * adb 的使用
@@ -78,6 +48,26 @@ framework 涉及的面很广，应该在学习过程中不停地查疑补缺：
 ## 主要硬件分析
 
 ## 系统 app 开发
+
+
+## 查疑补缺
+
+framework 涉及的面很广，应该在学习过程中不停地查疑补缺：
+
+* [如何在Android平台执行C/C++程序](https://juejin.cn/post/7166816766763466783/)
+
+* JNI
+  * [JNI 入门](https://juejin.cn/post/7166820136916582431)
+  * [JNI 数据类型](https://juejin.cn/post/7166820337831641102)
+  * JNI 字符串处理
+  * JNI 中访问 Java
+  * JNI crash与异常处理
+  * JNI 性能优化
+
+* [理解 C++ 的 Memory Order](https://juejin.cn/post/7158437747077120030)
+
+* Android 中的指针管理
+
 
 ## 关于我
 
