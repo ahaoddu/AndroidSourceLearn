@@ -54,18 +54,9 @@
 
 framework 涉及的面很广，应该在学习过程中不停地查疑补缺：
 
-* [如何在Android平台执行C/C++程序](https://juejin.cn/post/7166816766763466783/)
-
+* 如何在Android平台执行C/C++程序
 * JNI
-  * [JNI 入门](https://juejin.cn/post/7166820136916582431)
-  * [JNI 数据类型](https://juejin.cn/post/7166820337831641102)
-  * JNI 字符串处理
-  * JNI 中访问 Java
-  * JNI crash与异常处理
-  * JNI 性能优化
-
-* [理解 C++ 的 Memory Order](https://juejin.cn/post/7158437747077120030)
-
+* 理解 C++ 的 Memory Order
 * Android 中的指针管理
 
 
