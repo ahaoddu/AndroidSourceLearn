@@ -44,7 +44,7 @@ Binder 是一个 RPC（Remote Procedure Call） 框架，简单说就是使用 B
 
 简单归纳一下：
 * ServiceManager 完成在 Binder 驱动的注册，等待接受其他进程的请求
-* Server 向 ServiceManager 注册服务
+* Server 向 ServiceManager 注册服务，进入循环等待远程访问调用
 * Client 向 ServiceManger 查询服务，使用服务，即通过 Binder 驱动调用定义在 Server 端的方法
 
 ## 2. Server 端程序编写
