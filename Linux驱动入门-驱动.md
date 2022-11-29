@@ -34,7 +34,7 @@ int close(int fd);
 int open(const char *pathname, int flags, mode_t mode);
 ```
 
-当打开一个文件的时候，会返回一个 int 值，一般称这个返回值为句柄或者 handle，实际上句柄是一个数组的 index。数值的成员是 struct file ：
+当打开一个文件的时候，会返回一个 int 值，一般称这个返回值为句柄或者 handle，查看内核代码可以发现：句柄是一个数组的 index。数值的成员是 struct file ：
 
 ```c
 struct file {
@@ -79,7 +79,7 @@ struct file {
   __attribute__((aligned(4)));
 ```
 
-struct file 的结构有点复杂，我们主要关注代码中标注的四个关注点。
+struct file 的结构有点复杂，入门阶段主要关注代码中标注的四个关注点。
 
 在内核中，有一个 struct file 的数组，当调用 open 函数打开一个文件的时候，内核就会构建一个 struct file，并添加到这个数组中，返回 struct  file 的 index 给用户态程序。
 
@@ -325,7 +325,7 @@ int main(int argc, char **argv)
 
 ```
 
-我们可以按照上一篇文章介绍的方法将驱动编译进内核。也可以直接编写 makefile 来编译驱动模块，然后通过命令行加载和卸载驱动程序。这里介绍第二种方法：
+我们可以按照介绍的方法将驱动编译进内核。也可以直接编写 makefile 来编译驱动模块，然后通过命令行加载和卸载驱动程序。这里介绍第二种方法：
 
 创建 Makefile 文件：
 
