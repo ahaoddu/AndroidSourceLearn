@@ -30,6 +30,8 @@ Binder 在内核中注册为杂项设备，实际是一个字符驱动，了解 
 
 Binder 是一个 RPC（Remote Procedure Call） 框架，简单说就是使用 Binder，我们可以在 A 进程中访问 B 进程中定义的函数。
 
+另外，Binder 中，A 是不能直接访问到 B 的，还需要一个第三者 ServiceManager，B 将他的一堆函数（称为服务）注册到 ServiceManager 中，A 向 ServiceManager 查询到 B 后，获得一个句柄 handle（一个int值，用于标记B注册的服务），通过这个 handle 就可以访问到 B 中定义的函数了。
+
 整个程序涉及的对象：
 
 * server：服务端，定义服务，服务就是一堆函数。
