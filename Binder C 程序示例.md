@@ -19,7 +19,7 @@ Binder 在内核中注册为杂项设备，实际是一个字符驱动，了解 
 └── vndservicemanager.rc
 ```
 
-其中的 bctest 是一个 C语言完成的 Binder 客户端程序。
+其中的 bctest 是一个 C 语言完成的 Binder 客户端程序。
 
 在掉了一把头发后，我发现源码中的示例程序是不完整的。于是，在掉了更多头发以后，我找到了一个[相对完整的 Binder C 层示例程序](https://github.com/weidongshan/APP_0003_Binder_C_App)，进行了部分修改后，在 Android 10 下顺利运行起来了。下面我们一步一步写出这个示例程序。
 
@@ -39,7 +39,7 @@ Binder 是一个 RPC（Remote Procedure Call） 框架，简单说就是使用 B
 * servicemamager：用于管理服务
 * binder驱动：提供跨进程的数据传输功能即 IPC
 
-其工作流程如下图所示：
+代码的具体工作流程如下图所示：
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/ab78aa31091d94cf922c8a5ef82a8c2.jpg)
 
