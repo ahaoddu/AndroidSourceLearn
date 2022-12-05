@@ -28,7 +28,8 @@
 
 ## Android 系统开发入门
 
-* Android Framework 配置 Product
+* [如何在Android平台执行C/C++程序](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20Cpp%E7%A8%8B%E5%BA%8F.md)
+* [Android Framework 配置 Product](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E7%B3%BB%E7%BB%9F%E6%BA%90%E7%A0%81%E9%85%8D%E7%BD%AEProduct.md)
 * 添加自定义模块
 * SEAndroid入门
 * 添加预编译模块
@@ -65,10 +66,10 @@
 
 framework 涉及的面很广，应该在学习过程中不停地查疑补缺：
 
-* 如何在Android平台执行C/C++程序
 * JNI
-* 理解 C++ 的 Memory Order
+* [理解 C++ 的 Memory Order](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E7%90%86%E8%A7%A3%20C%2B%2B%20%E7%9A%84%20Memory%20Order.md)
 * Android 中的指针管理
+* [CPP宏函数的注意点](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/CPP%E5%AE%8F%E5%87%BD%E6%95%B0%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9.md)
 
 
 ## 关于我
