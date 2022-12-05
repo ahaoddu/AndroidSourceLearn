@@ -12,14 +12,19 @@
   * [Linux驱动入门-驱动](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Linux%E9%A9%B1%E5%8A%A8%E5%85%A5%E9%97%A8-%E9%A9%B1%E5%8A%A8.md)
 * [基本原理](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Binder%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86.md)
 
-* [C 程序示例](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Binder%20C%20%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B.md)
-* C 程序分析
-* 驱动分析
+* [Binder C 程序示例](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Binder%20C%20%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B.md)
+* [Binder C 程序分析之服务的注册过程]()
+* Binder C 程序分析之服务的获取过程
+* Binder C 程序分析之服务的调用过程
+* Binder 驱动分析之服务的注册过程
+* Binder 驱动分析之服务的获取过程
+* Binder 驱动分析之服务的调用过程
 * C++ 程序示例
 * C++ 程序分析
 * Java 程序示例
 * Java 程序分析
-
+* 匿名 Binder
+* Android 系统服务框架
 
 ## Android 系统开发入门
 
@@ -43,9 +48,9 @@
 * zygote
 * servicemanager
 * systemserver
-* 启动 Android App
-* 应用四大件与 framgment
-
+* AMS WMS PMS surfaceflinger
+  * Activity 启动过程
+  * Activity 显示过程
 
 ## 输入系统
 
