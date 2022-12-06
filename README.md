@@ -45,13 +45,20 @@
 
 ## 启动过程与核心组件
 
-* init
-* zygote
-* servicemanager
-* systemserver
-* AMS WMS PMS surfaceflinger
-  * Activity 启动过程
-  * Activity 显示过程
+* 系统启动过程
+  * init
+  * zygote
+  * servicemanager
+  * systemserver
+  * launcher
+* 核心组件
+  * AMS 
+    * Activity 启动过程
+  * WMS 
+    * Activity 显示过程
+  * PMS 
+  * SurfaceFlinger
+  * Handler
 
 ## 输入系统
 
