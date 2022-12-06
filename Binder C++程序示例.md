@@ -163,6 +163,8 @@ int BpHelloService::sayHelloTo(const char *name) {
 ## 4. 服务端程序实现
 
 ```c++
+int main(int argc, char const *argv[])
+{
     //使用 ProcessState 类完成 binder 驱动的初始化
     sp<ProcessState> proc(ProcessState::self());
     //注册服务
@@ -174,6 +176,7 @@ int BpHelloService::sayHelloTo(const char *name) {
 	IPCThreadState::self()->joinThreadPool();
     
     return 0;
+}
 ```
 
 ## 5. 客户端程序实现
