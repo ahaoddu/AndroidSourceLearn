@@ -1,4 +1,4 @@
-#include <fcntl.h>
+-=kll[[mm#include <fcntl.h>
 #include <sys/prctl.h>
 #include <sys/wait.h>
 #include <binder/IPCThreadState.h>
