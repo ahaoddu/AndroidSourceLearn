@@ -20,6 +20,7 @@
 * Binder 驱动分析之服务的获取过程
 * Binder 驱动分析之服务的调用过程
 * [Binder C++ 程序示例](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Binder%20C%2B%2B%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B.md)
+* Binder C++ 程序分析之主要类解析
 * Binder C++ 程序分析之服务的注册过程
 * Binder C++ 程序分析之服务的获取过程
 * Binder C++ 程序分析之服务的调用过程
