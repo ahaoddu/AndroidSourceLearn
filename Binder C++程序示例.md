@@ -1,4 +1,4 @@
-# Binder 之 C++ 示例
+# Binder C++ 程序示例
 
 Android 源码中提供了一系列的类来简化 Binder 驱动的使用。使得开发者能快速在 Android 系统源码中添加 Binder 服务和使用 Binder 服务。接下来我们使用 Android 源码中提供的辅助类和 C++ 语言来编写一个 Binder C++ 示例程序。
 
@@ -188,6 +188,7 @@ int main(int argc, char const *argv[])
     sp<ProcessState> proc(ProcessState::self());
     //获取 hello 服务
     sp<IServiceManager> sm = defaultServiceManager();
+    //返回的是 BpBinder 指针
     sp<IBinder> binder = sm->getService(String16("hello"));
     sp<IHelloService> service =
 		    interface_cast<IHelloService>(binder);
@@ -209,4 +210,4 @@ int main(int argc, char const *argv[])
 
 ## 6. 编译运行
 
-和 binder c 程序的编译运行过程一致，可以参考[Binder C 程序示例](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Binder%20C%20%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B.md)第四节。
+和 binder c 程序的编译运行过程一致，可以参考 [Binder C 程序示例](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/Binder%20C%20%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B.md)第四节。
