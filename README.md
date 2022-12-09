@@ -37,6 +37,12 @@
 * [如何在Android平台执行C/C++程序](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20Cpp%E7%A8%8B%E5%BA%8F.md)
 * [Android Framework 配置 Product](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E7%B3%BB%E7%BB%9F%E6%BA%90%E7%A0%81%E9%85%8D%E7%BD%AEProduct.md)
 * 添加自定义模块
+  * C&CPP 可执行程序
+  * C&CPP 库
+  * Java 库
+  * Android 库
+  * Android Studio 项目
+* 添加预编译模块
 * SEAndroid入门
 * 添加预编译模块
 * 删除内置 apk
