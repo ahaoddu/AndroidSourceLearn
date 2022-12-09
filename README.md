@@ -37,12 +37,12 @@
 * [如何在Android平台执行C/C++程序](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E5%A6%82%E4%BD%95%E5%9C%A8Android%E5%B9%B3%E5%8F%B0%E6%89%A7%E8%A1%8CC%20Cpp%E7%A8%8B%E5%BA%8F.md)
 * [Android Framework 配置 Product](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E7%B3%BB%E7%BB%9F%E6%BA%90%E7%A0%81%E9%85%8D%E7%BD%AEProduct.md)
 * 添加自定义模块
-  * C&CPP 可执行程序
-  * C&CPP 库
-  * Java 库
+  * [C&CPP 可执行程序](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E4%B9%8B%20C%26CPP%20%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F.md)
+  * [C&CPP 库](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E4%B9%8B%20C%26CPP%20%E5%BA%93.md)
+  * [Java 库](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E4%B9%8B%20Java%20%E5%BA%93.md)
   * Android 库
-  * Android Studio 项目
-* 添加预编译模块
+  * [Android Studio 项目](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E4%B9%8B%20Android%20Studio%20%E9%A1%B9%E7%9B%AE.md)
+* [添加预编译模块](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E6%B7%BB%E5%8A%A0%E9%A2%84%E7%BC%96%E8%AF%91%E6%A8%A1%E5%9D%97.md)
 * SEAndroid入门
 * 添加预编译模块
 * 删除内置 apk
@@ -52,8 +52,6 @@
 * 添加 binder 系统服务
 * 添加 hidl 服务
 * 添加系统硬件服务
-
-
 
 ## 启动过程与核心组件
 
