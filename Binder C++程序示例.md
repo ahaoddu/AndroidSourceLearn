@@ -109,6 +109,8 @@ int BnHelloService::sayHelloTo(const char *name) {
 }
 ```
 
+为叙述方便我们称 BnHelloService 以及同类型的类为 `Binder 服务类`
+
 ## 3. 通信协议客户端协议实现
 
 客户端协议实现是一个继承自 BpInterface<IHelloService> 的类
@@ -160,6 +162,9 @@ int BpHelloService::sayHelloTo(const char *name) {
     IMPLEMENT_META_INTERFACE(HelloService, "android.media.IHelloService");
 }
 ```
+
+为叙述方便我们称 BpHelloService 以及同类型的类为 `Binder 代理类`
+
 ## 4. 服务端程序实现
 
 ```c++

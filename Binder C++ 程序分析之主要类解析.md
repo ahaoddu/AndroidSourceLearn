@@ -677,7 +677,7 @@ private:
 ```
 
 类图总结如下：
-![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20221208184445.png)
+![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20221209162846.png)
 
 
 ## 5. 总结

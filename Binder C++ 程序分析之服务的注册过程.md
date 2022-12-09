@@ -207,13 +207,13 @@ ProcessState::handle_entry* ProcessState::lookupHandleLocked(int32_t handle)
 
 从上面的分析知道 `ProcessState::self()->getContextObject(nullptr)` 返回了一个 BpBinder 对象，其内部的 mHandle 值为 0。
 
-接下来调用 interface_cast<IServiceManager> 宏，将 BpBinder 转换为 IServiceManager
+接下来调用 `interface_cast<IServiceManager>` 宏，将 BpBinder 转换为 IServiceManager
 
-下面看下 interface_cast<IServiceManager>
+下面看下 `interface_cast<IServiceManager>`
 
 ```c++
 template<typename INTERFACE>
-inline sp<INTERFACE>            interface_cast(const sp<IBinder>& obj)
+inline sp<INTERFACE> interface_cast(const sp<IBinder>& obj)
 {
     return INTERFACE::asInterface(obj);
 }
@@ -224,6 +224,67 @@ inline sp<IServiceManager> interface_cast(const sp<IBinder>& obj)
     return IServiceManager::asInterface(obj);
 }
 ```
+
+asInterface 是 IServiceManager 类的一个静态方法，通过 IMPLEMENT_META_INTERFACE 宏实现。宏展开后如下：
+
+```c++
+::android::sp<IServiceManager> IServiceManager::asInterface(              
+            const ::android::sp<::android::IBinder>& obj)               
+    {                                                                   
+        ::android::sp<IServiceManager> intr;                               
+        if (obj != nullptr) {                                           
+            intr = static_cast<IServiceManager*>(    
+                //BpBinder 的 queryLocalInterface 函数返回 null                     
+                obj->queryLocalInterface(                               
+                        IServiceManager::descriptor).get());               
+            if (intr == nullptr) {    //走这里 
+                //obj 类型是 BpBinder                                 
+                intr = new BpServiceManager(obj);                          
+            }                                                           
+        }                                                               
+        return intr;                                                    
+    }               
+```
+
+asInterface  函数实际是 new 了一个 BpServiceManager，并传入了 obj，obj 的类型是 BpBinder。
+
+回到开始处，我们把新构建的 BpServiceManager 赋值给了全局变量 gDefaultServiceManager，后面我们就可以通过这个代理类发起远程调用。
+
+
+## 发起远程调用
+
+```c++
+sm->addService(String16("hello"), new BnHelloService());
+```
+
+sm 的实际类型是 BpServiceManager ，我们通过这个 Binder 代理类发起远程调用。
+BnHelloService 是 Hello 服务对应的 Binder 本地类。
+
+
+接下来看看 addService 的具体实现：
+
+```c++
+    //声明
+    //后两个参数带默认值
+    virtual status_t addService(const String16& name, const sp<IBinder>& service,
+                                bool allowIsolated = false,
+                                int dumpsysFlags = DUMP_FLAG_PRIORITY_DEFAULT) = 0;
+    //实现
+    virtual status_t addService(const String16& name, const sp<IBinder>& service,
+                                bool allowIsolated, int dumpsysPriority) {
+        Parcel data, reply;
+        //写入头数据
+        data.writeInterfaceToken(IServiceManager::getInterfaceDescriptor());
+        data.writeString16(name);
+        //将 BnHelloService 封装到 flat_binder_object 结构体中
+        data.writeStrongBinder(service);
+        data.writeInt32(allowIsolated ? 1 : 0);
+        data.writeInt32(dumpsysPriority);
+        status_t err = remote()->transact(ADD_SERVICE_TRANSACTION, data, &reply);
+        return err == NO_ERROR ? reply.readExceptionCode() : err;
+    }
+```
+
 
 
 
