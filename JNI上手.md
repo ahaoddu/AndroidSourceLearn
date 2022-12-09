@@ -1,4 +1,4 @@
-# JNI入门
+# JNI上手
 
 ## 引子
 
@@ -264,10 +264,9 @@ g++ -fpic -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/linux" -shared -o libnati
 java -Djava.library.path=. com.example.ndk.NativeTest
 ```
 
-## 总结
+## 源码下载
 
-* 静态注册，[源码](https://github.com/ahaoddu/AndroidSourceLearn/tree/main/Demos/JniDemo/StaticRegister)
-* 动态注册，[源码](https://github.com/ahaoddu/AndroidSourceLearn/tree/main/Demos/JniDemo/DynamicRegister)
+https://github.com/ahaoddu/JNIDemo
 
 jni 涉及的内容非常多，遇到问题可以查阅  [Java Native Interface Specification Contents](https://docs.oracle.com/en/java/javase/11/docs/specs/jni/)
 
