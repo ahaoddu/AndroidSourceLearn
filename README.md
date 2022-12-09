@@ -1,4 +1,4 @@
-# Android Framework 学习笔记
+# Android Framework 上手笔记
 
 ## 开发环境
 
@@ -29,6 +29,7 @@
 * Binder Java 程序分析之服务的获取过程
 * Binder Java 程序分析之服务的调用过程
 * 匿名 Binder
+* Binder 多线程
 * Android 系统服务框架
 
 ## Android 系统开发入门
