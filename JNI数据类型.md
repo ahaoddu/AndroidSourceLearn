@@ -38,23 +38,32 @@ typedef signed char jbyte;
 
 x86_64 平台梳理如下：
 
-| Java 类型 | JNI 类型 | C/C++ 类型     |
-| --------- | -------- | -------------- |
-| boolean   | jboolean | unsigned char  |
-| byte      | jbyte    | signed char    |
-| char      | jchar    | unsigned short |
-| short     | jshort   | signed short   |
-| int       | jint     | int            |
-| long      | jlong    | long           |
-| float     | jfloat   | float          |
-| double    | jdouble  | double         |
+| Java 类型 | JNI 类型 | C/C++ 类型      | 类型描述 |
+| --------- | -------- | -------------- | ------ |
+| boolean   | jboolean | unsigned char  | unsigned 8 bits |
+| byte      | jbyte    | signed char    | signed 8 bits     |
+| char      | jchar    | unsigned short | unsigned 16 bits     |
+| short     | jshort   | signed short   | signed 16 bits     |
+| int       | jint     | int            |  signed 32 bits     |
+| long      | jlong    | long           |   signed 64 bits    |
+| float     | jfloat   | float          |   32 bits    |
+| double    | jdouble  | double         |   64 bits    |
+
+这些数据类型可以直接使用无需转化:
+
+```c++
+jbyte result=0xff;
+jint size;
+jbyte* timeBytes;
+```
+
 
 引用类型也定义在 jni.h 中，总结如下：
 
-| java 类型           | JNI 引用类型  |
-| ------------------- | ------------- |
-| java.lang.Object    | jobject       |
-| java.lang.String    | jstring       |
+| java 类型           | JNI 引用类型  |   类型描述 |
+| ------------------- | ------------- | -------- |
+| java.lang.Object    | jobject       | 可以表示任何Java的对象 |
+| java.lang.String    | jstring       | 
 | java.lang.Class     | jclass        |
 | java.lang.Throwable | jthrowable    |
 | byte[]              | jbyteArray    |
@@ -66,6 +75,8 @@ x86_64 平台梳理如下：
 | long[]              | jlongArray    |
 | float[]             | jfloatArray   |
 | double[]            | jdoubleArray  |
+
+引用类型不能直接使用，要经过JNI函数转换才能使用
 
 ## 2. 数据类型转换
 

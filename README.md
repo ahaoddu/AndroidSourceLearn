@@ -83,6 +83,9 @@ framework 涉及的面很广，应该在学习过程中不停地查疑补缺：
 
 * JNI
   * [JNI上手](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/JNI%E4%B8%8A%E6%89%8B.md)
+  * [JNI数据类型](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/JNI%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
+  * JNI 描述符
+  * JavaVM和JNIEnv
 * [理解 C++ 的 Memory Order](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/%E7%90%86%E8%A7%A3%20C%2B%2B%20%E7%9A%84%20Memory%20Order.md)
 * Android 中的指针管理
 * [CPP宏函数的注意点](https://github.com/ahaoddu/AndroidSourceLearn/blob/main/CPP%E5%AE%8F%E5%87%BD%E6%95%B0%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9.md)

@@ -66,7 +66,6 @@ JNIEXPORT void JNICALL Java_HelloJNI_sayHello(JNIEnv *, jobject);
 #ifdef __cplusplus
 }
 #endif
-#endif
 ```
 
 - C 函数有两个参数：
